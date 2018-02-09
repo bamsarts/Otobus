@@ -1,0 +1,30 @@
+.cari{
+    font-size: 12px; 
+    text-align:center; 
+    padding-left:35px;
+    padding-right:35px
+}
+
+.changeSearch{
+    background-color: rgb(233, 182, 43);
+    color: white;
+    width: 150px;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+.changeSearch .icons{
+    float: right;
+    position: relative;
+}
+
+.changedSearch{
+    background-color: rgb(218, 214, 203);
+    border: none;
+    color: white;
+    width: 150px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+

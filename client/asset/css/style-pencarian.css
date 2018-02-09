@@ -1,0 +1,38 @@
+.pilter{
+	font-size: 15px; 
+	color: white;
+}
+
+.operator{
+	margin-left: 0px;
+}
+
+.waktu{
+	margin-left: -75px;
+}
+
+.berangkat{
+	margin-left: -75px;
+}
+
+.fasilitas{
+	margin-left: 5px;
+}
+
+.hargakiri{
+	margin-left: -80px;
+	width: 150px;
+}
+
+.hargakanan{
+	margin-left: 78px;
+	width: 150px;
+	top: -12px;
+}
+
+.slider-harga{
+	width: 90px;
+	position:absolute;
+	left:-10px;
+	top:10px;
+}

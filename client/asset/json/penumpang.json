@@ -1,0 +1,18 @@
+[
+    {
+        "idPenumpang": 1,
+        "jumlahPenumpang": "1 Orang"
+    },
+    {
+        "idPenumpang": 2,
+        "jumlahPenumpang": "2 Orang"
+    },
+    {
+        "idPenumpang": 3,
+        "jumlahPenumpang": "3 Orang"
+    },
+    {
+        "idPenumpang": 4,
+        "jumlahPenumpang": "4 Orang"
+    }
+]

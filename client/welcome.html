@@ -1,0 +1,340 @@
+
+
+		<!-- <div class='preloader'><div class='loaded'>&nbsp;</div></div> -->
+        <header id="home" class="navbar-fixed-top">
+
+            <!-- End navbar-collapse-->
+
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#/"><img src="client/asset/images/logo.png" alt="" /></a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="#/">Home</a></li>
+                                        <li>
+                                            <!-- <a href="#" onclick="toggle_visibility('foo');">Cek Pemesanan</a> -->
+                                            <div class="dropdown">
+                                                <button onclick="myFunction()" class="dropbtn">Cek Pemesanan</button>
+                                                <div id="myDropdown" class="dropdown-content">
+                                                    <div class="">
+                                                        <form class="form-signin">
+                                                            <input type="text" class="form-control pesan" placeholder="Kode Pesanan" required autofocus>
+                                                            <input type="text" class="form-control telepon" placeholder="No Telepon" required>
+                                                            <input type="email" class="form-control email" placeholder="Email" required><br>
+                                                            <a href="#/pemesanan"><input class="btn btn-primary form-control cek" type="text" value="Cek"></a>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><a ng-href="#/informasi">Informasi</a></li>
+                                        <li><a href="#/login">Login/Daftar</a></li>
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header> <!-- End Header Section -->
+
+        <section id="slider" class="slider">
+            <div class="slider_overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_slider text-center" style="margin-top: -60px;">
+                            <div class="col-md-6">
+                            <div class="main_slider_content wow fadeIn" data-wow-duration="1s">
+                                <div class="single_widget_form text-left">
+
+                                    <form action="#" id="formid" method="get">
+                                        <div class="col-md-2">
+                                            <img src="client/asset/images/asal1.png" style="margin-top: -90px;">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -90px;">
+                                                <!-- <input type="text" class="mdl-textfield__input" id="asal1"> -->
+                                                <label class="" for=""><p style="color: white;">Kota Asal</p></label>
+                                                <br>
+                                                <select class="kotaAsal" ng-model="asal" ng-options="x as x.namaWilayah group by x.namaProvinsi for x in tesAsal"  style="width: 200px;" ng-change="fetch()">
+                                                </select>
+                                            </div><br><br>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <img src="client/asset/images/tujuan1.png" style="margin-top: -10px;">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -60px;">
+                                                <!-- <input type="text" class="mdl-textfield__input" id="tujuan1"> -->
+                                                <label class="mdl-textfield__label" for=""><p style="color: white;">Kota Tujuan</p></label><br><br>
+                                                <select class="kotaAsal" ng-model="tujuan" ng-options="x as x.namaWilayah group by x.namaProvinsi for x in tesTujuan"  style="width: 200px;">
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <img src="client/asset/images/tanggal1.png" style="margin-top: 20px;">
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-md-10" style="margin-top: -30px;">
+                                            <div>
+                                                <label id="tanggal1" class="mdl-textfield__label" for=""><p style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal</p></label><br><br>
+                                                <!-- <label for="StartDate">Start</label> -->
+                                                <datepicker date-min-limit="{{limit}}" type="text" date-format="yyyy-MM-dd" class="tanggal3" id="tanggal3" ng-disabled="true" >
+                                                    <input type="text" class="tanggal_utama" ng-model="tglBerangkat">
+                                                </datepicker>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <img src="client/asset/images/kelas1.png" style="margin-top: 20px;">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -20px;">
+                                                <!-- <input type="text" class="mdl-textfield__input" id="penumpang1"> -->
+                                                <label class="mdl-textfield__label" for=""><p style="color: white;">Kelas</p></label><br><br>
+                                                <select class="_kelas" id="_kelas" ng-model="id_jurusan" ng-options="a as a.jumlahKelas for a in tesKelas"  style="width: 200px;">
+                                                </select>
+                                                <!-- <select class="_kelas" id="_kelas" style="width: 200px;" ng-model="id_jurusan">
+                                                    <option ng-repeat="list_kelas in resultKelas" value="{{ list_kelas.idKelas }}">
+                                                        {{ list_kelas.jumlahKelas }}
+                                                    </option>
+                                                </select> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <img src="client/asset/images/penumpang1.png" style="margin-top: 25px;">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -20px;">
+                                                <!-- <input type="text" class="mdl-textfield__input" id="penumpang1"> -->
+                                                <label class="mdl-textfield__label" for=""><p style="color: white;">Jumlah Penumpang</p></label><br><br>
+                                                <select class="_kelas" id="_kelas" ng-model="id_kursi" ng-options="a as a.jumlahPenumpang for a in tesPenumpang"  style="width: 200px;">
+                                                </select>
+                                                <!-- <select class="penumpang" id="penumpang" style="width: 200px;" ng-model="id_kursi">
+                                                    <option ng-repeat="list_penumpang in _result_penumpang" value="{{ list_penumpang.idPenumpang }}">
+                                                        {{ list_penumpang.jumlahPenumpang }}
+                                                    </option>
+                                                </select> -->
+                                            </div>
+                                        </div>
+                                        <br><br><input type="button" value="Cari" ng-click="panggil(form)" class="btn btn-xs btn-primary form-control">
+                                    </form>
+
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6" style="margin-top: 150px;">
+                                <div class="main_slider_content wow zoomIn" data-wow-duration="1s">
+                                    <h4 style="color: orange;">Cari dan pesan tiket disini !</h4>
+                                    <p style="font-size: 18px;">Anda bisa pesan tiket s/d 45 hari sebelum keberangkatan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h5 style="color: white;">Operator Bus</h5>
+                        </div>
+                        <div class="text-center">
+                        	<marquee behavior="alternate" width="30%"  onmouseover="this.stop()" onmouseout="this.start()">
+                            <img src="client/asset/images/PO_Bus/1.png" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/PO_Bus/2.png" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/PO_Bus/3.png" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/PO_Bus/4.png" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/PO_Bus/5.png" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/PO_Bus/6.png" style="margin-bottom: 8px;">
+                        	</marquee>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h5 style="color: white;">Pembayaran</h5>
+                        </div>
+                        <div class="text-center">
+                        	<marquee behavior="alternate" direction="right" width="30%"  onmouseover="this.stop()" onmouseout="this.start()">
+                            <img src="client/asset/images/bank/1.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/2.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/3.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/4.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/5.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/6.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/7.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/8.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/9.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/10.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/11.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/12.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/13.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/14.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/15.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/16.jpg" style="margin-bottom: 8px;">
+                            <img src="client/asset/images/bank/17.jpg" style="margin-bottom: 8px;">
+                        	</marquee>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="abouts" class="abouts">
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="single_abouts_text text-center wow slideInLeft" data-wow-duration="1s">
+                                <br><h4 style="color: white;">Mengapa beli tiket di otobus.co.id?</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="height: 100%;position: relative;">
+                    <div class="col-md-4">
+                        <div class="box-simple wow slideInRight" data-wow-duration="1s">
+                            <div class="icon">
+                                <i class="fa fa-desktop"></i>
+                            </div>
+                            <h3>Title</h3>
+                            <p>Deskripsi singkat disini</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box-simple wow slideInRight" data-wow-duration="1s">
+                            <div class="icon">
+                                <i class="fa fa-print"></i>
+                            </div>
+                            <h3>Title</h3>
+                            <p>Deskripsi singkat disini</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box-simple wow slideInRight" data-wow-duration="1s">
+                            <div class="icon">
+                                <i class="fa fa-print"></i>
+                            </div>
+                            <h3>Title</h3>
+                            <p>Deskripsi singkat disini</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="height: 100%;position: relative;">
+                    <div class="col-md-4">
+                        <div class="box-simple wow slideInRight" data-wow-duration="1s">
+                            <div class="icon">
+                                <i class="fa fa-desktop"></i>
+                            </div>
+                            <h3>Title</h3>
+                            <p>Deskripsi singkat disini</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box-simple wow slideInRight" data-wow-duration="1s">
+                            <div class="icon">
+                                <i class="fa fa-print"></i>
+                            </div>
+                            <h3>Title</h3>
+                            <p>Deskripsi singkat disini</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="box-simple wow slideInRight" data-wow-duration="1s">
+                            <div class="icon">
+                                <i class="fa fa-print"></i>
+                            </div>
+                            <h3>Title</h3>
+                            <p>Deskripsi singkat disini</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer_widget" class="footer_widget">
+            <div class="container">
+                <div class="row">
+                    <div class="footer_widget_content">
+                    <div class="col-md-12">
+                                <div class="single_widget wow fadeIn" data-wow-duration="1s">
+                                    <!--<h4 style="color: orange;" class="text-center">Cari dan pesan tiket disini !</h4>-->
+                                    <p style="font-size: 15px; color: black;" class="text-center">
+                                        Otobus.co.id adalah website booking tiket bus online terbesar di Indonesia. Kami membantu Anda pesan tiket dengan lebih cepat, mudah, dan aman. Otobus.co.id memiliki lebih dari 1000 keberangkatan per hari dan bekerja sama dengan 100+ operator bus terpercaya. Rute perjalanan kami telah menjangkau pulau Jawa, Sumatera, Bali, Madura, dan Kalimantan. Kini semakin mudah merencanakan perjalanan anda. Cobalah pengalaman beli tiket disini.
+                                    </p>
+                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single_widget wow fadeIn" data-wow-duration="2s">
+                                <h3 style="color: black;">Rute Populer</h3>
+
+                                <div class="single_widget_info">
+                                    <p style="color: black;">
+                                        Jakarta Timur - Yogyakarta<br>
+                                        Tangerang - Yogyakarta<br>
+                                        Semarang - Surabaya<br>
+                                        Bekasi - Wonosari<br>
+                                        Medan - Aceh<br>
+                                        Lampung - Semarang<br>
+                                        Surabaya - Bali<br>
+                                        Denpasar - Lombok<br>
+                                        Lampung - Semarang<br><br>
+                                        <a href="#">Selengkapnya</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="single_widget wow fadeIn" data-wow-duration="2s">
+                                <div class="footer_socail_icon">
+                                    <a href=""><i class="fa fa-facebook"></i></a>
+                                    <a href=""><i class="fa fa-google-plus"></i></a>
+                                    <a href=""><i class="fa fa-twitter"></i></a>
+                                    <a href=""><i class="fa fa-linkedin"></i></a>
+                                    <a href=""><i class="fa fa-pinterest-p"></i></a>
+                                    <a href=""><i class="fa fa-youtube"></i></a>
+                                    <a href=""><i class="fa fa-phone"></i></a>
+                                    <a href=""><i class="fa fa-camera"></i></a>
+                                </div>
+                            </div>
+                            <form role="form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" autocomplete="off" placeholder="Email">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button" style="margin-left: -25px; background-color: orange; border-color: orange;">Subscribe</button>
+                            </span>
+                        </div>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="copyright wow zoomIn" data-wow-duration="3s">
+                            <p>Copyright &copy; 2017 Otodesign</p>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+        </section>
+
+		<div class="scrollup">
+			<a href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>

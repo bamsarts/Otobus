@@ -1,0 +1,315 @@
+        <style>
+            .panel:hover{
+                border-color: orange;
+            }
+        </style>
+		<!-- <div class='preloader'><div class='loaded'>&nbsp;</div></div> -->
+        <header id="home" class="navbar-fixed-top">
+
+            <!-- End navbar-collapse-->
+
+            <div class="main_menu_bg" style="background: black;">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#/"><img src="client/asset/images/logo.png" alt="" /></a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="#/" style="font-size: 14px;">Home</a></li>
+                                        <li><a href="#/pemesanan" style="font-size: 14px;">Cek Pemesanan</a></li>
+                                        <li><a href="#/informasi" style="font-size: 14px;">Informasi</a></li>
+                                        <li><a href="#/login" style="font-size: 14px;">Login/Daftar</a></li>
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header> <!-- End Header Section -->
+
+        <section id="slider">
+            <div class="slider_overlay" style="background-color: white;" ng-repeat="seri in final">
+                <div class="container" style="margin-top: 100px;">
+                    <div class="row">
+
+                        <!-- form detail pesanan -->
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <form class="row-border">
+
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <p>
+                                                    <b style="font-size: 14px;">Detail Pesanan</b><br><br>
+                                                    <!-- <span style="font-size: 11px;">No. pesanan</span><br><br> -->
+                                                    <!-- <img data-ng-src='@{{ seri.logoPo }}'><br> -->
+                                                    <img data-ng-src='{{ seri.logoPo }}'><br>
+                                                    <span>
+                                                        <b style="font-size: 14px;">PO. {{ seri.poTrayek.namaPo }}</b><br>
+                                                        <span style="font-size: 10px;">
+                                                            {{seri.pemesananJadwal.ekonomi}} - <b>{{seri.pemesananJadwal.armada}} ({{seri.pemesananJadwal.kelasBis}})</b><br>
+                                                            Kursi ({{seri.pemesananJadwal.seatType}})
+                                                        </span>
+                                                    </span><br>
+                                                    <span ng-repeat="seri in final">
+                                                    <span style="font-size: 12px;">
+                                                        <b>{{ tglBerangkat | tanggal }}</b>
+                                                    </span><br>
+                                                    <span style="font-size: 12px;">Jam
+                                                        <b ng-model="vm.jamBerangkat">{{ agenBerangkat.jamBerangkat }}</b>
+                                                        <b ng-model="vm.zonaWaktu">{{agenBerangkat.zonaWaktu}}</b>
+                                                    </span><br>
+                                                    <span style="font-size: 12px;">
+                                                        Tempat Keberangkatan : <br>
+                                                        <span style="font-size: 12px;">
+                                                        <b>Agen {{ agenBerangkat.namaAgen }}</b><br>
+                                                        {{ agenBerangkat.alamatAgen }} <br>
+                                                        </span>
+                                                    </span>
+                                                    </span><br>
+                                                    <span style="font-size: 12px;"><b ng-model="jumlahPenumpang">{{val_kursi}}</b> <b>Orang</b></span><br>
+                                                    <span style="font-size: 12px;">
+                                                        Total harga: <br>
+                                                        <b style="color: blue; font-size: 13px;" ng-model="vm.total">{{ seri.pemesananJadwal.hargaJual * val_kursi | currency : "Rp " }}</b>
+                                                    </span>
+                                                </p><br>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <p>
+                                                    <b style="font-size: 14px;">Fasilitas</b><br><br>
+                                                    <div class="col-md-6">
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.ac">
+                                                            <img src="client/asset/images/iconFasilitas/ac22.png">&nbsp;&nbsp; AC<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.recSeat">
+                                                            <img src="client/asset/images/iconFasilitas/recliningSeat22.png">&nbsp;&nbsp; Rec Seat<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.footRest">
+                                                            <img src="client/asset/images/iconFasilitas/footRest22.png">&nbsp;&nbsp; Foot Rest<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.legRest">
+                                                            <img src="client/asset/images/iconFasilitas/footRest22.png">&nbsp;&nbsp; Leg Rest<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.video">
+                                                            <img src="client/asset/images/iconFasilitas/video22.png">&nbsp;&nbsp; Video<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.audio">
+                                                            <img src="client/asset/images/iconFasilitas/music22.png">&nbsp;&nbsp; Audio<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.toilet">
+                                                            <img src="client/asset/images/iconFasilitas/toilet22.png">&nbsp;&nbsp; Toilet<br><br>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.smokingArea">
+                                                            <img src="client/asset/images/iconFasilitas/smokingArea22.png">&nbsp;&nbsp; Smoking Area<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.wifi">
+                                                            <img src="client/asset/images/iconFasilitas/wifi22.png">&nbsp;&nbsp; Wifi<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.airMineral">
+                                                            <img src="client/asset/images/iconFasilitas/airMineral22.png">&nbsp;&nbsp; Air Mineral<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.snack">
+                                                            <img src="client/asset/images/iconFasilitas/voucherMakan22.png">&nbsp;&nbsp; Snack<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.selimut">
+                                                            <img src="client/asset/images/iconFasilitas/selimut22.png">&nbsp;&nbsp; Selimut<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.bantal">
+                                                            <img src="client/asset/images/iconFasilitas/bantal22.png">&nbsp;&nbsp; Bantal<br><br>
+                                                        </span>
+                                                        <span style="font-size: 12px;" ng-show="seri.pemesananJadwal.bagasi">
+                                                            <img src="client/asset/images/iconFasilitas/bagasi22.png">&nbsp;&nbsp; Bagasi {{seri.pemesananJadwal.bagasi}} Kg <br><br>
+                                                        </span>
+                                                    </div>
+                                                </p><br>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <p>
+                                                    <b style="font-size: 14px;">Rute</b>
+                                                </p>
+                                                <div class="col-md-12" style="margin-top: -50px;">
+                                                    <!-- main timeline section -->
+                                                    <section id="cd-timeline" class="cd-container cssanimations">
+                                                        <!-- single timeline event -->
+                                                        <div ng-repeat="ruteWilayah in rute">
+                                                            <div class="cd-timeline-block">
+                                                            <div class="cd-timeline-img cd-picture">
+                                                            <!-- <img src="asset/images/asal1.png"> -->
+                                                            </div>
+                                                                <div class="cd-timeline-content">
+                                                                    <p style="font-size: 13px;">{{ruteWilayah}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+
+                        <!-- form data pemesan -->
+
+                        <form class="row-border">
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <b>Data Pemesan</b><br><br>
+
+                                                    <span>
+                                                        <label style="font-size: 12px;">Nama Pemesan <span style="color: red;">*</span></label>
+                                                        <input type="text" ng-model="vm.pemesan" class="form-control" style="background: white; font-size:12px;" required><br>
+                                                        <!-- <input type="text" name="" ng-model="pemesan"> -->
+                                                    </span>
+
+                                                    <span>
+                                                        <label style="font-size: 12px;">Nomor Handphone <span style="color: red;">*</span></label>
+                                                        <input name="number" type="number" ng-model="vm.nomorHandphone" class="form-control" style="background: white; font-size:12px;" required><br>
+                                                    </span>
+
+                                                    <span>
+                                                        <label style="font-size: 12px;">Email <span style="color: red;">*</span></label>
+                                                        <input name="email" type="email" ng-model="vm.email" class="form-control" style="background: white; font-size: 12px;" required><br>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <b>Data Penumpang</b><br><br>
+                                            </div>
+                                            <div class="col-md-12" ng-repeat="x in listPenumpangs">
+                                                <div class="col-md-1">
+                                                    <label style="font-size: 12px; margin-top: 4px;">
+                                                        <span>No. </span><br><br>
+                                                        <span>{{$index +1}}</span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label style="font-size: 12px;">Nama lengkap penumpang</label>
+                                                    <span>
+                                                        <input name="nama" type="text" ng-model="vm.namaPenumpang" class="required form-control" style="background: white; font-size: 12px;" required><br>
+                                                    </span>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <p style="font-size: 12px;">
+                                                        <b>Gender</b><br>
+
+                                                        <!-- <select class="select" id="select_gender" style="width: 10px;" ng-model="vm.kategoriUsia">
+                                                            <option value="Anak-anak" data-imagesrc="asset/images/choose-gender/boy.png" data-description="Anak laki-laki">Boy</option>
+                                                            <option value="Anak-anak" data-imagesrc="asset/images/choose-gender/girl.png" data-description="Anak perempuan">Girl</option>
+                                                            <option value="Dewasa" selected="selected" data-imagesrc="asset/images/choose-gender/male.png" data-description="Pria">Male</option>
+                                                            <option value="Dewasa" data-imagesrc="asset/images/choose-gender/female.png" data-description="Wanita">Female</option>
+                                                        </select> -->
+
+                                                        <span>
+                                                            <select class="form-control" ng-model="vm.kategoriUsia" style="background: white;">
+                                                                <option value="Anak" style="background-image:url(client/asset/images/choose-gender/boy.png);" >
+                                                                  <span ng-model="vm.jenisKelamin">
+                                                                    <b value="Pria">Boy</b>
+                                                                  </span>
+                                                                </option>
+                                                                <option value="Anak"  style="background-image:url(client/asset/images/choose-gender/girl.png);">
+                                                                  <span ng-model="vm.jenisKelamin" >
+                                                                    <b value="Wanita">Girl</b>
+                                                                  </span>
+                                                                </option>
+                                                                <option value="Dewasa" style="background-image:url(client/asset/images/choose-gender/male.png);">
+                                                                  <span ng-model="vm.jenisKelamin">
+                                                                    <b value="Pria">Male</b>
+                                                                  </span>
+                                                                </option>
+                                                                <option value="Dewasa"  style="background-image:url(client/asset/images/choose-gender/female.png);">
+                                                                  <span ng-model="vm.jenisKelamin">
+                                                                    <b value="Wanita">Female</b>
+                                                                  </span>
+                                                                </option>
+                                                            </select>
+                                                        </span>
+
+                                                        <!-- <span>
+                                                          <select class="form-control" style="background: white;">
+                                                              <option ng-repeat="list_gender in resultGender" value="{{ list_gender.kategoriUsia }}">
+                                                                  {{ list_gender.gender }}
+                                                              </option>
+                                                          </select>
+                                                        </span> -->
+
+                                                    </p><br>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <p style="font-size: 12px; text-align: center;">
+                                                        <b>No. Kursi</b><br>
+                                                        <span>
+                                                            <b style="font-size: 14px;">{{x}}</b>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="col-md-8">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4" style="left: 120px;">
+                                <input type="button" class="btn btn-sm btn-primary" ng-click="pesanTiket(form, agenBerangkat.jamBerangkat, agenBerangkat.zonaWaktu, $index+1)" value="Lanjutkan">
+                            </div><br><br><br>
+                        </div>
+                        <!-- end -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <script>
+            $('#myslick').ddslick({
+                onSelected: function(selectedData){
+                    //callback function: do something with selectedData;
+                }
+            });
+        </script> -->
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('select.select').select2();
+          });
+        </script>

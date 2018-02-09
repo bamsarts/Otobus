@@ -1,0 +1,520 @@
+        <style>
+        .tanggal_utama{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+
+            display: block;
+            color: #fff;
+            margin-left: 15px;
+            width: 150px;
+            height: 25px;
+
+            background-color: #222;
+            border-radius: 5px;
+            border: 2px solid orange;
+
+            margin-top: 0px;
+            margin-left: 0px;
+        }
+
+            @media screen and (min-width:721px) and (max-width: 1660px){
+                .mobileVersion{
+                    display: none;
+                }
+            }
+            @media screen and (max-width: 720px){
+                .dekstopVersion{
+                    display: none;
+                }
+                .carii{
+                    display: block;
+                    width: 575px;
+                    font-size: 12px;
+                }
+                .kolomAsal{
+                    font-size: 12px;
+                    background: white;
+                }
+                /* option .asal_{
+                    -webkit-appearance: none;
+                    position: relative;
+                    left: 50px;
+                } */
+                .kolomTujuan{
+                    font-size: 12px;
+                    background: white;
+                }
+                .kolomKelas{
+                    font-size: 12px;
+                    background: white;
+                }
+                .kolomPenumpang{
+                    font-size: 12px;
+                    background: white;
+                }
+                /* .map{
+                    display: block!important;
+                } */
+            }
+        </style>
+
+    <div class="dekstopVersion">
+	    <!-- <div class='preloader'><div class='loaded'>&nbsp;</div></div> -->
+        <header id="home" class="navbar-fixed-top" style="background: black;">
+            <!-- End navbar-collapse-->
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#/"><img src="client/asset/images/logo.png" alt="" /></a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="#/" style="font-size: 14px;">Home</a></li>
+                                        <li><a href="#/pemesanan" style="font-size: 14px;">Cek Pemesanan</a></li>
+                                        <li><a href="#/informasi" style="font-size: 14px;">Informasi</a></li>
+                                        <li><a href="#/login" style="font-size: 14px;">Login/Daftar</a></li>
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header> <!-- End Header Section -->
+
+        <div class="container">
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-md-12 form-inline">
+
+                    <!-- kota asal -->
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(client/asset/images/kota-asal16.png);"></i></span>
+                                <input class="form-control" style="font-size: 12px; background-color: white;" ng-model="namaWilayahAsal" readonly>
+                        </div>
+                    </div>
+                    <!-- end -->
+
+                    <!-- kota tujuan -->
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(client/asset/images/kota-tujuan16.png);"></i></span>
+                                <input class="form-control" style="font-size: 12px; background-color: white;" ng-model="namaWilayahTujuan" readonly>
+                        </div>
+                    </div>
+                    <!-- end -->
+
+                    <!-- tanggal -->
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(client/asset/images/tanggal15.png);"></i></span>
+                            <input ng-model="tglBerangkat" class="form-control" style="background: white; font-size: 12px;" readonly>
+                        </div>
+                    </div>
+                    <!-- end -->
+
+                    <!-- kelas -->
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(client/asset/images/kelas16.png);"></i></span>
+                            <input ng-model="namaEkonomi" class="form-control" style="background: white; font-size: 12px;" readonly>
+                        </div>
+                    </div>
+                    <!-- end -->
+
+                    <!-- penumpang -->
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(client/asset/images/penumpang16.png);"></i></span>
+                            <input ng-model="namaKursi" class="form-control" style="background: white; font-size: 12px;" readonly>
+                        </div>
+                    </div>
+                    <!-- end -->
+
+                    <div class="col-sm-2 form-group">
+                        <button type="submit" class="btn changeSearch" ng-click="changeSearch()">
+                            <span class="icons"><i class="fas fa-angle-up"></i></span>
+                            <p>{{changeSearchText}} </p>
+                        </button>
+                    </div>
+                </div><br><br><hr>
+
+
+                <!-- start cari -->
+                <div ng-show="mySearch">
+                    <div class="col-sm-2">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -30px;">
+                            <!-- <input type="text" class="mdl-textfield__input" id="asal1"> -->
+                            <label class="" for=""><p style="color: black; font-size: 12px;">Kota Asal</p></label><br>
+                            <select class="kotaAsal" ng-model="asal" ng-options="x as x.namaWilayah group by x.namaProvinsi for x in tesAsal"  style="width: 150px; background-color: white; color: black; font-size: 12px;" ng-change="fetch()">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -30px;">
+                            <!-- <input type="text" class="mdl-textfield__input" id="tujuan1"> -->
+                            <label class="" for=""><p style="color: black; font-size: 12px;">Kota Tujuan</p></label><br>
+                            <select class="kotaAsal" ng-model="tujuan" ng-options="x as x.namaWilayah group by x.namaProvinsi for x in tesTujuan"  style="width: 150px; background-color: white; color: black; font-size: 12px;">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -30px;">
+                        <!-- <input type="text" class="mdl-textfield__input" id="tujuan1"> -->
+                        <label id="tanggal1" class="" for=""><p style="color: black; font-size: 12px;">Tanggal keberangkatan</p></label><br>
+                        <datepicker date-min-limit="{{limit}}" type="text" date-format="yyyy-MM-dd" class="tanggal3" id="tanggal3" ng-disabled="true">
+                            <input type="text" class="tanggal_utama" style="background-color: white; color: black; font-size: 12px;">
+                        </datepicker>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -30px;">
+                        <!-- <input type="text" class="mdl-textfield__input" id="penumpang1"> -->
+                        <label class="" for=""><p style="color: black; font-size: 12px;">Kelas</p></label><br>
+                        <select class="_kelas" id="_kelas" ng-model="id_jurusan" ng-options="a as a.jumlahKelas for a in tesKelas"  style="width: 150px; background-color: white; color: black; font-size: 12px;">
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label col-xs-5" style="margin-top: -30px;">
+                        <!-- <input type="text" class="mdl-textfield__input" id="penumpang1"> -->
+                        <label class="" for=""><p style="color: black; font-size: 12px;">Jumlah Penumpang</p></label><br>
+                        <select class="_kelas" id="_kelas" ng-model="id_kursi" ng-options="a as a.jumlahPenumpang for a in tesPenumpang"  style="width: 150px; background-color: white; color: black; font-size: 12px;">
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-2 form-group">
+                        <!-- <input type="button" value="Ganti pencarian" ng-click="panggil(form)" class="btn btn-sm btn-primary form-control" style="margin-top: 10px; margin-left: -10px;"> -->
+                        <button type="submit" class="btn btn-sm btn-primary" style="margin-top: 10px;" ng-click="panggil(form)">
+                            <p class="cari">Cari</p>
+                        </button>
+                    </div><br><br><br><br>
+                </div>
+                <!-- end -->
+
+                <!-- <div class="col-md-12">
+                    <div class="panel panel-default panel-table panelFilter">
+                        <div class="panel-heading" style="background: black;">
+                            <div class="row">
+                                <div class="col col-xs-2">
+                                    <h3 class="panel-title pilter">Filter Berdasarkan</h3>
+                                </div>
+                                <div class="col-xs-2 operator">
+                                    <div class="btn-group bootstrap-select show-tick filter-select">
+                                        <select class="form-control" name="operator" style="font-size: 12px; width: 110px; background: white;">
+                                            <option value="">Operator</option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2 waktu">
+                                    <div class="btn-group bootstrap-select show-tick filter-select">
+                                         <select class="form-control" name="waktu" style="font-size: 12px; width: 110px; background: white;">
+                                            <option value="">Waktu</option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2 berangkat">
+                                    <div class="btn-group bootstrap-select show-tick filter-select">
+                                        <select class="form-control" name="tempat_keberangkatan" style="font-size: 12px; width: 200px; background: white;">
+                                            <option value="">Tempat Keberangkatan</option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2 fasilitas">
+                                    <div class="btn-group bootstrap-select show-tick filter-select">
+                                        <select class="form-control" name="fasilitas" style="font-size: 12px; width: 110px; background: white;">
+                                            <option value="">Fasilitas</option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2 kiri hargakiri">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon2" style="font-size: 12px;">Rp</span>
+                                            <input id="slider-price-low" type="text" class="form-control" aria-describedby="basic-addon2" style="background: white; font-size: 12px;">
+                                    </div>
+                                </div>
+                                <div id="slider-price" class="col-xs-2 slider-harga"></div>
+                                <div class="col-xs-2 kanan hargakanan">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon2" style="font-size: 12px;">Rp</span>
+                                            <input id="slider-price-high" type="text" class="form-control" aria-describedby="basic-addon2" style="background: white; font-size: 12px;">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="dt-row">
+                        <div class="container ">
+                            <div data-dt-name="operator" class="col-sm-3 hidden-xs text-center asc">Bus & Kelas</div>
+                            <div data-dt-name="type" class="col-sm-3 hidden-xs text-center asc">Rute</div>
+                            <div data-dt-name="berangkat" class="col-sm-3 hidden-xs text-center asc">Fasilitas</div>
+                            <div data-dt-name="via" class="col-sm-3 hidden-xs text-center asc">Harga</div>
+                        </div>
+                    </div><br>
+                    <div ng-include="'client/pencarian2.html'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobileVersion">
+        <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+        <header id="home" class="navbar-fixed-top" style="background: black;">
+            <!-- End navbar-collapse-->
+            <div class="main_menu_bg">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="{{ url ('/') }}"><img src="{{asset('asset/images/logo.png')}}" alt="" /></a>
+                                </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="{{ url ('/') }}" style="font-size: 14px;">Home</a></li>
+                                        <li><a href="{{ url ('pemesanan')}}" style="font-size: 14px;">Cek Pemesanan</a></li>
+                                        <li><a href="{{ url ('informasi')}}" style="font-size: 14px;">Informasi</a></li>
+                                        <li><a href="{{ url ('login')}}" style="font-size: 14px;">Login/Daftar</a></li>
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header> <!-- End Header Section -->
+
+        <div class="container">
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-md-12 form-inline">
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(asset/images/kota-asal16.png);"></i></span>
+                                <select class="form-control kolomAsal" name="asal">
+                                    <option value="">Asal</option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(asset/images/kota-tujuan16.png);"></i></span>
+                            <select class="form-control kolomTujuan" name="tujuan">
+                                <option value="">Tujuan</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(asset/images/tanggal15.png);"></i></span>
+                            <input class="form-control tanggal" type="text" name="tanggal" value="<?php $tgl=date('d-m-Y'); echo $tgl; ?>" style="background: white; font-size: 12px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(asset/images/kelas16.png);"></i></span>
+                            <select class="form-control kolomKelas" name="kelas">
+                                <option value="">Kelas</option>
+                                <option value="">Ekonomi</option>
+                                <option value="">Non Ekonomi</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <div class="input-group date">
+                            <span class="input-group-addon" style="background: white;"><i style="background-image: url(asset/images/penumpang16.png);"></i></span>
+                            <select class="form-control kolomPenumpang" name="penumpang">
+                                <option value="">Penumpang</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            <p class="carii">Ganti Pencarian</p>
+                        </button>
+                    </div>
+                </div><br><br><br>
+            </div>
+        </div>
+    </div>
+
+        <!--Start of Tawk.to Script
+        <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/59bf396dc28eca75e4620995/default';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            })();
+        </script>
+        End of Tawk.to Script -->
+
+        <!-- start scroll up aktif -->
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+        <!-- end -->
+
+        <script src="client/asset/assets/js/vendor/jquery-1.11.2.min.js"></script>
+
+        <script type="text-javascript" src="{{asset('asset/assets/js/jquery-1.11.1.min.js')}}"></script>
+        <script type="text/javascript" src="client/asset/js/jquery.min.js"></script>
+        <script src="client/asset/assets/js/vendor/bootstrap.min.js"></script>
+
+        <script src="client/asset/assets/js/jquery-easing/jquery.easing.1.3.js"></script>
+        <script src="client/asset/assets/js/wow/wow.min.js"></script>
+        <script src="client/asset/assets/js/plugins.js"></script>
+        <script src="client/asset/assets/js/main.js"></script>
+
+        <!-- untuk accordion bootstrap -->
+        <script type="text/javascript" src="client/asset/js/jquery.js"></script>
+        <script type="text/javascript" src="{{asset('asset/js/jquery-ui.js')}}"></script>
+
+        <!-- custom accordion -->
+        <script type="text/javascript" src="{{asset('asset/js/custom_accordion.js')}}"></script>
+
+        <!-- angular -->
+        <script type="text/javascript" src="{{asset('asset/angular/angular.min.js')}}"></script>
+        <!-- <script src="{{asset('asset/angular/angular-datepicker.js')}}"></script> -->
+        <script src="{{asset('asset/angular/angular-route.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('asset/angular/angular-animate.min.js')}}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+        <!-- end angular -->
+
+        <!-- custom order tiket -->
+        <script type="text/javascript" src="{{asset('asset/js/custom_tiket.js')}}"></script>
+        <script type="text/javascript" src="{{asset('asset/js/custom_tiket2.js')}}"></script>
+
+        <!-- datepicker -->
+        <script type="text/javascript" src="{{asset('asset/js/bootstrap-datepicker.js')}}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.tanggal').datepicker({
+                    format: "dd-mm-yyyy",
+                    autoclose:true
+                });
+              
+            });
+        </script>
+        <!-- end -->
+
+        <!-- tooltip -->
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
+        <!-- end -->
+
+
+        <!-- Jquery UI Range Script -->
+        <script>
+            $(document).ready(function() {
+                var min_rent = 95000,
+                max_rent = 250000;
+                $('#slider-price-low').val(min_rent);
+                $('#slider-price-high').val(max_rent);
+
+                $('#slider-price').slider({
+                    orientation: 'horizontal',
+                    range: true,
+                    animate: 200,
+                    min: 0,
+                    max: 500000,
+                    step: 5000,
+                    value: 0,
+                    values: [min_rent, max_rent],
+                    slide: function(event,ui) {
+                        $('#slider-price-low').val(ui.values[0]);
+                        $('#slider-price-high').val(ui.values[1]);
+                    }
+                });
+
+                $('#slider-price-low').change(function () {
+                    var low = $('#slider-price-low').val(),
+                    high = $('#slider-price-high').val();
+                    low = Math.min(low, high);
+                    $('#slider-price-low').val(low);
+                    $('#slider-price').slider('values', 0, low);
+                });
+
+                $('#slider-price-high').change(function () {
+                    var low = $('#slider-price-low').val(),
+                    high = $('#slider-price-high').val();
+                    high = Math.max(low, high);
+                    $('#slider-price-high').val(high);
+                    if(high > 500000) {
+                        $('#slider-price-high').val('500000');
+                    }
+                    $('#slider-price').slider('values', 1, high);
+                });
+            });
+        </script>

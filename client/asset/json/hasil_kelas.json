@@ -1,0 +1,14 @@
+[
+    {
+        "idKelas": 0,
+        "jumlahKelas": "Semua Kelas"
+    },
+    {
+        "idKelas": 1,
+        "jumlahKelas": "Ekonomi"
+    },
+    {
+        "idKelas": 2,
+        "jumlahKelas": "Non Ekonomi"
+    }
+]

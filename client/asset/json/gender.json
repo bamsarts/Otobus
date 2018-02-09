@@ -1,0 +1,18 @@
+[
+  {
+    "gender": "Boy",
+    "kategoriUsia": "Anak"
+  },
+  {
+    "gender": "Girl",
+    "kategoriUsia": "Anak"
+  },
+  {
+    "gender": "Male",
+    "kategoriUsia": "Dewasa"
+  },
+  {
+    "gender": "Female",
+    "kategoriUsia": "Dewasa"
+  }
+]

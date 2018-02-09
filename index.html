@@ -1,0 +1,399 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <!-- <base href="/" /> -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Otobus</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--favicon otobus-->
+        <link rel="shortcut icon" type="text/css" href="client/asset/images/icon.png">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="client/asset/assets/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="client/asset/assets/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" href="client/asset/assets/css/bootstrap-theme.min.css"> -->
+
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="client/asset/assets/css/animate/animate.css" />
+        <link rel="stylesheet" href="client/asset/assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="client/asset/assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="client/asset/assets/css/responsive.css" />
+
+        <link rel="stylesheet" type="text/css" href="client/asset/universal/style.css">
+
+        <!-- datepicker style -->
+        <link rel="stylesheet" type="text/css" href="client/asset/css/datepicker.css">
+
+        <!-- material design lite (Form) -->
+        <link rel="stylesheet" type="text/css" href="client/asset/material_design_lite/material.min.css">
+        <!-- end -->
+        <!-- material design lite (Form) -->
+        <script type="text/javascript" src="client/asset/material_design_lite/material.min.js"></script>
+        <!-- end -->
+
+        <script src="client/asset/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+        <!-- angular css -->
+        <!-- <link rel="stylesheet" type="text/css" href="client/asset/angular/angular.min.css"> -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="client/asset/angular/angular-datepicker.css">
+
+        <!-- style form -->
+        <link rel="stylesheet" type="text/css" href="client/asset/assets/css/styleForm.css">
+
+        <script src="client/asset/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+
+
+        <!-- demo css-->
+        <!-- <link rel="stylesheet" href="client/asset/css/demo.css"> -->
+
+        <!-- style login -->
+        <link rel="stylesheet" href="client/asset/css/style-login.css">
+
+        <!-- Style Pencarian -->
+        <link rel="stylesheet" type="text/css" href="client/asset/css/style-pencarian.css">
+
+
+        <!-- css accordion dan range harga bootstrap -->
+        <link rel="stylesheet" type="text/css" href="client/asset/css/jquery-ui.css">
+
+        <!-- datepicker style -->
+        <link rel="stylesheet" type="text/css" href="client/asset/css/datepicker.css">
+
+        <!-- style css timeline -->
+        <link rel="stylesheet" type="text/css" href="client/asset/css/timeline.css">
+
+        <link rel="stylesheet" href="client/asset/select2/css/select2.css">
+        <link rel="stylesheet" href="client/asset/assets/css/custom.css">
+        <!-- <link rel="stylesheet" href="{{asset('asset/angular/angular-datepicker.css')}}"> -->
+
+        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.css"/> -->
+
+        <!-- css chosen file -->
+        <!-- <link rel="stylesheet" type="text/css" href="{{asset('asset/chosen/chosen.css')}}"> -->
+
+
+
+    </head>
+
+    <!-- custom css untuk select option -->
+    <style>
+        .kotaAsal{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+
+            display: block;
+            color: #fff;
+
+            background-color: #222;
+            border-radius: 5px;
+            border: 2px solid orange;
+        }
+
+        .kotaTujuan{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+
+            display: block;
+            color: #fff;
+
+            background-color: #222;
+            border-radius: 5px;
+            border: 2px solid orange;
+        }
+
+        .tanggal_utama{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+
+            display: block;
+            color: #fff;
+            margin-left: 15px;
+            width: 200px;
+            height: 25px;
+
+            background-color: #222;
+            border-radius: 5px;
+            border: 2px solid orange;
+
+            margin-top: 0px;
+            margin-left: 15px;
+        }
+
+        ._kelas{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+
+            display: block;
+            color: #fff;
+
+            background-color: #222;
+            border-radius: 5px;
+            border: 2px solid orange;
+        }
+
+        .penumpang{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+
+            display: block;
+            color: #fff;
+            background-color: #222;
+            border-radius: 5px;
+            border: 2px solid orange;
+        }
+
+        /* hr {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+            background-color: orange;
+        } */
+
+        /* untuk css pemesanan */
+        .inner{
+        height: 160px;
+        width: 180px;
+        background-color: rgb(181, 187, 181);
+        border-radius: 10px;
+        }
+
+        .outer{
+        padding: 10px;
+        background-color: rgb(181, 187, 181);
+        display: inline-block;
+        border-radius: 8px;
+        position: relative;
+        margin-left: -70px;
+        margin-top: 60px;
+        }
+
+        .arrow{
+        position: absolute;
+        top: -50px;
+        left: 55px;
+        border: 25px solid transparent;
+        border-right: 50px solid rgb(181, 187, 181);
+
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 25px solid rgb(181, 187, 181);
+        }
+        /* end */
+    </style>
+    <!-- end -->
+
+    <style>
+    .dropbtn {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        outline:none;
+        color: white;
+    }
+
+    .dropdown {
+        position: relative;
+        margin-top: 13px;
+    }
+
+    .dropdown-content {
+
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+        border-radius: 5px;
+
+        margin-top: 20px;
+    }
+
+    .dropdown button:hover {
+        color: orange;
+    }
+
+    .show {
+        display:block;
+    }
+
+    .pesan{
+        margin-left: 8px;
+        margin-top: 5px;
+    }
+    .telepon{
+        margin-left: 8px;
+        margin-top: 5px;
+    }
+    .email{
+        margin-left: 8px;
+        margin-top: 5px;
+    }
+    .cek{
+        margin-left: 8px;
+        margin-top: -30px;
+    }
+    </style>
+
+    <body>
+      <div ng-app="otobusApp">
+          <div ng-view></div>
+      </div>
+
+      <!-- </div> -->
+
+      <!-- untuk accordion bootstrap -->
+      <!-- <script type="text/javascript" src="client/asset/js/jquery.js"></script>
+      <script type="text/javascript" src="client/asset/js/jquery.min.js"></script> -->
+
+      <!-- angular -->
+      <script type="text/javascript" src="client/asset/angular/angular.min.js"></script>
+      <script src="client/asset/angular/angular-datepicker.js"></script>
+      <script src="client/asset/angular/angular-route.min.js"></script>
+      <script src="client/asset/angular/angular-resource.min.js"></script>
+      
+
+      <script type="text/javascript" src="client/app/js/midtrans_controller.js"></script>
+    
+      <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+      <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+      <script type="text/javascript"
+            src="https://app.sandbox.midtrans.com/snap/snap.js"
+            data-client-key="VT-client-OygPNcKKkn64VS5P"></script>
+      <script type="text/javascript" src="client/app/js/module.js"></script>
+      <script type="text/javascript" src="client/app/js/index_controller.js"></script>
+      <script type="text/javascript" src="client/app/js/pencarian_controller.js"></script>
+      <script type="text/javascript" src="client/app/js/formCetak_controller.js"></script>
+      <script type="text/javascript" src="client/app/js/pemesanan_controller.js"></script>
+      <script type="text/javascript" src="client/asset/angular/angular-animate.min.js"></script>
+      
+
+      <!-- end angular -->
+
+
+      <!-- <script type="text/javascript" src="client/asset/js/jquery-1.10.2.min.js"></script> -->
+
+      <!-- <script type="text/javascript" src="client/asset/js/jquery-ui.js"></script> -->
+
+      <!-- <script src="client/asset/assets/js/vendor/jquery-1.11.2.min.js"></script> -->
+      <!-- <script src="client/asset/assets/js/vendor/bootstrap.min.js"></script> -->
+
+      <!-- <script src="client/asset/assets/js/jquery-easing/jquery.easing.1.3.js"></script> -->
+      <!-- <script src="client/asset/assets/js/wow/wow.min.js"></script> -->
+      <!-- <script src="client/asset/assets/js/plugins.js"></script> -->
+
+      <!-- <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+      <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script> -->
+
+      <!-- <script type="text/javascript" src="client/asset/js/jquery.min.js"></script> -->
+      <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
+
+      <script src="client/asset/select2/js/select2.js" charset="utf-8"></script>
+
+      <!-- JS untuk scrollup -->
+      <script src="client/asset/assets/js/main.js"></script>
+      <!-- end -->
+
+      <script src="client/asset/assets/js/wow/wow.min.js"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+        <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
+        </script>
+
+
+        <!-- Jquery UI Range Script -->
+        <!-- <script>
+            $(document).ready(function() {
+                var min_rent = 95000,
+                max_rent = 250000;
+                $('#slider-price-low').val(min_rent);
+                $('#slider-price-high').val(max_rent);
+
+                $('#slider-price').slider({
+                    orientation: 'horizontal',
+                    range: true,
+                    animate: 200,
+                    min: 0,
+                    max: 500000,
+                    step: 5000,
+                    value: 0,
+                    values: [min_rent, max_rent],
+                    slide: function(event,ui) {
+                        $('#slider-price-low').val(ui.values[0]);
+                        $('#slider-price-high').val(ui.values[1]);
+                    }
+                });
+
+                $('#slider-price-low').change(function () {
+                    var low = $('#slider-price-low').val(),
+                    high = $('#slider-price-high').val();
+                    low = Math.min(low, high);
+                    $('#slider-price-low').val(low);
+                    $('#slider-price').slider('values', 0, low);
+                });
+
+                $('#slider-price-high').change(function () {
+                    var low = $('#slider-price-low').val(),
+                    high = $('#slider-price-high').val();
+                    high = Math.max(low, high);
+                    $('#slider-price-high').val(high);
+                    if(high > 500000) {
+                        $('#slider-price-high').val('500000');
+                    }
+                    $('#slider-price').slider('values', 1, high);
+                });
+            });
+        </script> -->
+    </body>
+</html>

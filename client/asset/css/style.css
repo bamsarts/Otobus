@@ -1,0 +1,108 @@
+
+
+/***********************************************************************
+*  OPAQUE NAVBAR SECTION
+***********************************************************************/
+.opaque-navbar {
+    background-color: rgba(0,0,0,0.5);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 60px;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+}
+
+.opaque-navbar.opaque {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
+
+ul.dropdown-menu {
+    background-color: black;
+}
+
+
+@media (max-width: 992px) {
+  body
+  {
+    background:red;
+  }
+  .opaque-navbar {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
+
+}
+
+
+/* body styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: #fff;
+    line-height: 1.5;
+}
+h1 {
+    font-size: 50px;
+}
+h2 {
+    font-size: 30px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+small {
+    font-size: 75%;
+    color: #eee;
+}
+a, a:visited, a:hover, a:focus {
+    color: inherit;
+}
+a:hover, a:focus {
+    color: #ddd;
+}
+
+/* full height demo */
+html.style-full-height,
+html.style-full-height body,
+html.style-full-height .jarallax,
+html.style-full-height .style-table {
+    height: 100%;
+}
+html.style-full-height .jarallax,
+html.style-full-height .style-table {
+    min-height: 600px;
+}
+
+.jarallax, .half-jarallax{
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.jarallax {
+    height: 600px;
+}
+.half-jarallax{
+     height: 400px;
+}
+
+/* hero block */
+.style-table {
+    display: table;
+    width: 100%;
+    height: 600px;
+    background-color: rgba(39,35,51,0.8);
+}
+.style-table-cell {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.map {
+    display: none;
+}

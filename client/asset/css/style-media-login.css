@@ -1,0 +1,16 @@
+@media (max-width: 586px ) {
+    #slider{
+        width: 200px;
+        height: auto;
+        margin: 0 auto;
+        display: fixed;
+    }
+    button#masuk{
+        width: 100px;
+        height: auto;
+    }
+    body{
+        width: auto;
+        height: auto;
+    }
+}
