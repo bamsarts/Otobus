@@ -148,9 +148,9 @@
                     <!-- end -->
 
                     <div class="col-sm-2 form-group">
-                        <button type="submit" class="btn changeSearch" ng-click="changeSearch()">
-                            <span class="icons"><i class="fas fa-angle-up"></i></span>
-                            <p>{{changeSearchText}} </p>
+                        <button type="submit" class="btn changeSearch" ng-class="{'changedSearch':selectedCombination==true}" ng-click="changeSearch()">
+                            <span ng-show="iconArrowUp" class="icons"><i class="fas fa-angle-up"></i></span>
+                            <p>{{changeSearchText}}</p>
                         </button>
                     </div>
                 </div><br><br><hr>

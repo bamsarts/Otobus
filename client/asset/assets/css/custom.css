@@ -18,12 +18,15 @@
     position: relative;
 }
 
+.changedSearch .icons{
+    float: right;
+    position: relative;
+}
+
 .changedSearch{
-    background-color: rgb(218, 214, 203);
-    border: none;
+    background-color: rgb(196, 195, 192);
     color: white;
     width: 150px;
-    text-align: center;
     font-size: 16px;
     margin: 4px 2px;
 }

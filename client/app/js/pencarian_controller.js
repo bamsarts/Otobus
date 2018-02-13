@@ -7,13 +7,20 @@ otobusApp.controller('pencarian_controller', function($timeout, $scope, $http, $
         $scope.mySearch = false;
     });
 
+    // $scope.combinations = [{combinationId:1, name:'Ganti Pencarian'},{combinationId:2, name:'Tutup'}];
+
     $scope.changeSearch = function(){
+        
         if($scope.mySearch == true){
             $scope.mySearch = false;
             $scope.changeSearchText = "Ganti Pencarian";
+            $scope.iconArrowUp = false;
+            $scope.selectedCombination = false;
         }else{
             $scope.mySearch = true;
             $scope.changeSearchText = "Tutup";
+            $scope.iconArrowUp = true;
+            $scope.selectedCombination = true;
         }
     }
     
@@ -36,10 +43,19 @@ otobusApp.controller('pencarian_controller', function($timeout, $scope, $http, $
   // kalau tidak ada maka jangan jalankan
 
   // show hide pada panel order
-  $scope.showDetails = false;
+
+  $timeout(function(){
+      $scope.showDetails = false;
+  });
+
   $scope.openDetailsPage = function(){
-    $scope.showDetails = true;
-  };
+    if($scope.showDetails == true){
+        $scope.showDetails = false;
+    }else{
+        $scope.showDetails = true;
+    }
+  }
+
   $scope.closeDetails = function(){
     $scope.kursi = [];
   };

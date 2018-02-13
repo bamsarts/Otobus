@@ -25,11 +25,10 @@
 
 <div class="row-hover" ng-repeat="seri in final">
     <div class="container">
-
-        <div class="panel panel-default trayek" ng-click="openDetailsPage();">
-        <a href="" data-toggle="tooltip" title="klik order disini">
+        <div class="panel panel-default trayek">
+            <a href="" data-toggle="tooltip" title="klik order disini">
             <div class="panel-body">
-                <div class="col-md-3 po1">
+                <div class="col-md-3 po1" ng-click="openDetailsPage()">
                     <!-- <img src="asset/images/PO_Bus/1.png"><b>&nbsp;&nbsp;&nbsp;Seri W</b><br> -->
                     <img data-ng-src='{{ seri.logoPo }}'><b style="color: black; font-size: 12px;">&nbsp;{{ seri.pemesananJadwal.armada }}</b><b style="font-size: 8px; color: black;">(Seat  {{seri.pemesananJadwal.seatType}})</b><br>
                     <div class="col-md-6">
@@ -48,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 text-center rute1">
+                <div class="col-md-3 text-center rute1" ng-click="openDetailsPage()">
                     <p align="center" style="font-size: 11px; color: black;">
                         {{ seri.poTrayek.rute }}
                         <div class="col-sm-4"></div>
@@ -57,7 +56,7 @@
                         </div>
                     </p>
                 </div>
-                <div class="col-md-3 text-center">
+                <div class="col-md-3 text-center" ng-click="openDetailsPage()">
                     <div class="col-md-4 titel1" ng-show="seri.pemesananJadwal.ac">
                         <img src="client/asset/images/iconFasilitas/ac.png">
                         <p style="font-size: 11px; color: black;">AC</p>
@@ -80,7 +79,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 text-center harga1">
+                
+                <div class="col-md-3 text-center harga1" ng-click="openDetailsPage()">
                     <p align="right" style="font-size: 11px; color: black;">
                         Kursi Tersedia <b style="font-size: 20px;">{{seri.pemesananJadwal.availableSeat}}</b><br>
                         Harga per Orang<br>
@@ -223,7 +223,7 @@
                 </div><br><br><br>
 
                 <!-- start pesan bus -->
-                <div ng-show="!kursi[$index] && showDetails" class="map" id="map_1"><br><br>
+                <div ng-show="!kursi[$index] && showDetails" class="map" id="map_1">
                 <hr>
                     <div class="row">
                         <div class="item active col-md-6">
@@ -318,7 +318,7 @@
                 </div>
                 <!-- end -->
             </div>
-        </a>
+            </a>
         </div>
     </div>
 </div>
