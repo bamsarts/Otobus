@@ -44,18 +44,6 @@ otobusApp.controller('pencarian_controller', function($timeout, $scope, $http, $
 
   // show hide pada panel order
 
-  $timeout(function(){
-      $scope.showDetails = false;
-  });
-
-  $scope.openDetailsPage = function(){
-    if($scope.showDetails == true){
-        $scope.showDetails = false;
-    }else{
-        $scope.showDetails = true;
-    }
-  }
-
   $scope.closeDetails = function(){
     $scope.kursi = [];
   };
@@ -144,8 +132,10 @@ otobusApp.controller('pencarian_controller', function($timeout, $scope, $http, $
           $scope.pilihKursi = function(seat, index, hargaTotal){
               if($scope.layoutKursi[index][4] === '0'){
                   console.log($scope.layoutKursi[index][2])
-                  if ($scope.kursiTerpilih.length === $routeParams.jmlKursi) {
+                  console.log("jumlah kursi: "+$routeParams.jmlKursi);
+                  if ($scope.kursiTerpilih.length == $routeParams.jmlKursi) {
                       window.alert("Batas maksimal");
+                      console.log("Kursi pas");
                   } else {
                       $scope.layoutKursi[index][4] = '1';
                       $scope.kursiTerpilih.push($scope.layoutKursi[index][2])

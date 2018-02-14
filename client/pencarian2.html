@@ -28,26 +28,28 @@
         <div class="panel panel-default trayek">
             <a href="" data-toggle="tooltip" title="klik order disini">
             <div class="panel-body">
-                <div class="col-md-3 po1" ng-click="openDetailsPage()">
+                <div class="col-md-3 po1">
                     <!-- <img src="asset/images/PO_Bus/1.png"><b>&nbsp;&nbsp;&nbsp;Seri W</b><br> -->
-                    <img data-ng-src='{{ seri.logoPo }}'><b style="color: black; font-size: 12px;">&nbsp;{{ seri.pemesananJadwal.armada }}</b><b style="font-size: 8px; color: black;">(Seat  {{seri.pemesananJadwal.seatType}})</b><br>
-                    <div class="col-md-6">
-                        <p align="left" style="font-size: 12px; color: black"><b>{{seri.pemesananJadwal.kelasBis}}</b></p>
-                    </div>
-                    <div class="col-md-6 seat1">
-                        <p align="right" style="font-size: 12px; color: black"><b>{{seri.poTrayek.jamAwal}}</b></p>
+                    <div ng-click="showDetails = !showDetails">
+                        <img data-ng-src='{{ seri.logoPo }}'><b style="color: black; font-size: 12px;">&nbsp;{{ seri.pemesananJadwal.armada }}</b><b style="font-size: 8px; color: black;">(Seat  {{seri.pemesananJadwal.seatType}})</b><br>
+                        <div class="col-md-6">
+                            <p align="left" style="font-size: 12px; color: black"><b>{{seri.pemesananJadwal.kelasBis}}</b></p>
+                        </div>
+                        <div class="col-md-6 seat1">
+                            <p align="right" style="font-size: 12px; color: black"><b>{{seri.poTrayek.jamAwal}}</b></p>
+                        </div>
                     </div>
                     <div id="" class="">
                         <div class="" data-wow-duration="2s" style="margin-top: -250px;">
                             <div class="buttonProfil1">
-                                <button ng-click="showDetails3 =! showDetails3" style="height: 25px;" class="col-sm-12 btn btn-xs btn-primary panel-title profil1 collapse_1" type="button">
+                                <button ng-click="profilBus = !profilBus" style="height: 25px;" class="col-sm-12 btn btn-xs btn-primary panel-title profil1 collapse_1" type="button">
                                     <p style="font-size: 12px;">Profil Bus</p>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 text-center rute1" ng-click="openDetailsPage()">
+                <div class="col-md-3 text-center rute1" ng-click="showDetails = !showDetails">
                     <p align="center" style="font-size: 11px; color: black;">
                         {{ seri.poTrayek.rute }}
                         <div class="col-sm-4"></div>
@@ -56,23 +58,25 @@
                         </div>
                     </p>
                 </div>
-                <div class="col-md-3 text-center" ng-click="openDetailsPage()">
-                    <div class="col-md-4 titel1" ng-show="seri.pemesananJadwal.ac">
-                        <img src="client/asset/images/iconFasilitas/ac.png">
-                        <p style="font-size: 11px; color: black;">AC</p>
-                    </div>
-                    <div class="col-md-4 titel2" ng-show="seri.pemesananJadwal.wifi">
-                        <img src="client/asset/images/iconFasilitas/wifi.png">
-                        <p style="font-size: 11px; color: black;">wifi</p>
-                    </div>
-                    <div class="col-md-4 titel3" ng-show="seri.pemesananJadwal.snack">
-                        <img src="client/asset/images/iconFasilitas/voucherMakan.png">
-                        <p style="font-size: 11px; color: black;">Snack</p>
+                <div class="col-md-3 text-center">
+                    <div ng-click="showDetails = !showDetails">
+                        <div class="col-md-4 titel1" ng-show="seri.pemesananJadwal.ac">
+                            <img src="client/asset/images/iconFasilitas/ac.png">
+                            <p style="font-size: 11px; color: black;">AC</p>
+                        </div>
+                        <div class="col-md-4 titel2" ng-show="seri.pemesananJadwal.wifi">
+                            <img src="client/asset/images/iconFasilitas/wifi.png">
+                            <p style="font-size: 11px; color: black;">wifi</p>
+                        </div>
+                        <div class="col-md-4 titel3" ng-show="seri.pemesananJadwal.snack">
+                            <img src="client/asset/images/iconFasilitas/voucherMakan.png">
+                            <p style="font-size: 11px; color: black;">Snack</p>
+                        </div>
                     </div>
                     <div id="accordion">
                         <div class="panel-default" data-wow-duration="2s" style="margin-top: -250px;">
                             <div class="buttonFasilitas1">
-                                <button ng-click="showDetails4 = ! showDetails4" style="height: 25px;" class="col-sm-12 btn btn-xs btn-primary panel-title fasilitas1 collapse_2" type="button" >
+                                <button ng-click="fasilitasBus = ! fasilitasBus" style="height: 25px;" class="col-sm-12 btn btn-xs btn-primary panel-title fasilitas1 collapse_2" type="button" >
                                     <p style="font-size: 12px;">Fasilitas Bus</p>
                                 </button>
                             </div>
@@ -80,7 +84,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-3 text-center harga1" ng-click="openDetailsPage()">
+                <div class="col-md-3 text-center harga1" ng-click="showDetails = !showDetails">
                     <p align="right" style="font-size: 11px; color: black;">
                         Kursi Tersedia <b style="font-size: 20px;">{{seri.pemesananJadwal.availableSeat}}</b><br>
                         Harga per Orang<br>
@@ -88,7 +92,7 @@
                     </p>
                 </div>
 
-                <div ng-show="showDetails3" id="" class="panel-collapse col-md-12">
+                <div ng-show="profilBus" id="" class="panel-collapse col-md-12">
                     <hr>
                     <div class="col-md-6">
                         <div class="container">
@@ -130,7 +134,7 @@
                     </div>
                 </div>
 
-                <div ng-show="showDetails4" id="" class="panel-collapse col-md-12">
+                <div ng-show="fasilitasBus" id="" class="panel-collapse col-md-12">
                     <hr>
                     <div class="col-md-6">
                         <div class="container">
