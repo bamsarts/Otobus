@@ -18,6 +18,20 @@
     position: relative;
 }
 
+.custom-dropdown{
+    visibility: visible;
+    padding-top: 150px;
+}
+
+.messages input{
+    margin-top: 5px;
+}
+
+.messages p{
+    color: rgb(31, 30, 30);
+    font-size: 10px;
+}
+
 .changedSearch .icons{
     float: right;
     position: relative;
@@ -31,3 +45,59 @@
     margin: 4px 2px;
 }
 
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: rgb(224, 178, 24);
+    background-color: #0a0a0a11;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-left: 10px;
+    border-radius: 5px;
+    width: 190px;
+}
+  
+  /* dropdown style */
+  .dropdown.open:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 7px 8px;
+    border-style: solid;
+    border-color: transparent;
+    z-index: 1001;
+  }
+
+  .dropdown.open:after {
+    bottom: -1px;
+    left: 25px;
+    right: -8px;
+    border-bottom-color:  rgb(238, 236, 236);
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: rgb(226, 221, 221);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
